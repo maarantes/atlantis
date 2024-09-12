@@ -4,7 +4,7 @@ import Telefone from "./modelos/telefone";
 
 const prompt = require('prompt-sync')({sigint: true});
 
-let clientes: Cliente[] = [];
+export let clientes: Cliente[] = [];
 
 // CRUD Clientes
 

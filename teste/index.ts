@@ -1,37 +1,51 @@
-import { cadastrarCliente, atualizarCliente, deletarCliente, lerCliente, adicionarDependente, listarDependentes, listarTitular, atualizarDependentes, deletarDependente } from '../clienteCRUD';
+import { cadastrarCliente, atualizarCliente, deletarCliente, lerCliente, adicionarDependente, listarDependentes, listarTitular, atualizarDependentes, deletarDependente } from "../clienteCRUD";
+import { adicionarDocumento, atualizarDocumento, deletarDocumento, listarDocumentos } from "../documentoCRUD";
 import Cliente from "../modelos/cliente";
 import Endereco from "../modelos/endereco";
 import Telefone from "../modelos/telefone";
 
 import "../ClientePreCadastrado"
 
-const prompt = require('prompt-sync')({sigint: true});
+const prompt = require("prompt-sync")({sigint: true});
 
 console.log("\n----- Seja bem-vindo ao Hotel Atlantis! -----");
 
-function menu() {
+function menuCliente() {
     console.log("\n----- CRUD Clientes -----\n");
     console.log("1. [CREATE] Cadastrar Cliente");
     console.log("2. [READ] Listar Informações de um Cliente");
     console.log("3. [UPDATE] Atualizar Cliente");
     console.log("4. [DELETE] Deletar Cliente e seus Dependentes");
+    console.log("0. Voltar ao menu principal");
+}
+
+function menuDependente() {
     console.log("\n----- CRUD Dependentes -----\n");
-    console.log("5. [CREATE] Adicionar Dependente a um Cliente");
-    console.log("6. [READ] Listar Dependentes de um Titular");
-    console.log("7. [READ] Listar Titular de um Dependente");
-    console.log("8. [UPDATE] Atualizar Dependentes de um Cliente");
-    console.log("9. [DELETE] Deletar Dependente de um cliente");
-    console.log("0. Sair");
+    console.log("1. [CREATE] Adicionar Dependente a um Cliente");
+    console.log("2. [READ] Listar Dependentes de um Titular");
+    console.log("3. [READ] Listar Titular de um Dependente");
+    console.log("4. [UPDATE] Atualizar Dependentes de um Cliente");
+    console.log("5. [DELETE] Deletar Dependente de um cliente");
+    console.log("0. Voltar ao menu principal");
+}
+
+function menuDocumento() {
+    console.log("\n----- CRUD Documentos -----\n");
+    console.log("1. [CREATE] Adicionar Documento a um Cliente");
+    console.log("2. [READ] Listar Documentos de um Cliente");
+    console.log("3. [UPDATE] Atualizar Documento de um Cliente");
+    console.log("4. [DELETE] Deletar Documento de um Cliente");
+    console.log("0. Voltar ao menu principal");
 }
 
 function cadastrarNovoCliente() {
-    console.log("\n")
+    console.log("");
     const nome = prompt("Nome: ");
     const nomeSocial = prompt("Nome Social: ");
     const dataNascimentoStr = prompt("Data de Nascimento (AAAA-MM-DD): ");
     const dataNascimento = new Date(dataNascimentoStr);
 
-    console.log("\n--- Cadastro de Endereço ---")
+    console.log("\n--- Cadastro de Endereço ---");
     const rua = prompt("Rua: ");
     const bairro = prompt("Bairro: ");
     const cidade = prompt("Cidade: ");
@@ -47,7 +61,7 @@ function cadastrarNovoCliente() {
     endereco.pais = pais;
     endereco.codigoPostal = codigoPostal;
 
-    console.log("\n--- Cadastro de Telefones ---")
+    console.log("\n--- Cadastro de Telefones ---");
 
     let telefones: Telefone[] = [];
     let maisTelefones = true;
@@ -58,7 +72,7 @@ function cadastrarNovoCliente() {
         telefone.ddd = ddd;
         telefone.numero = numero;
         telefones.push(telefone);
-        maisTelefones = prompt("Deseja adicionar mais um telefone? (s/n): ") === 's';
+        maisTelefones = prompt("Deseja adicionar mais um telefone? (S/N): ") === "S";
     }
 
     cadastrarCliente(nome, nomeSocial, dataNascimento, endereco, telefones);
@@ -66,7 +80,7 @@ function cadastrarNovoCliente() {
 }
 
 function AtualizacaoCliente() {
-    console.log("\n")
+    console.log("");
     const nomeCliente = prompt("Digite o nome do cliente que deseja atualizar: ");
     const novoNome = prompt("Novo nome (ENTER para pular): ");
     const novoNomeSocial = prompt("Novo nome social (ENTER para pular): ");
@@ -78,13 +92,13 @@ function AtualizacaoCliente() {
 }
 
 function deletarClienteExistente() {
-    console.log("\n")
+    console.log("");
     const nomeCliente = prompt("Digite o nome do cliente que deseja deletar: ");
     deletarCliente(nomeCliente);
 }
 
 function adicionarDependenteCliente() {
-    console.log("\n")
+    console.log("");
     const nomeTitular = prompt("Digite o nome do titular: ");
     const nomeDependente = prompt("Nome do dependente: ");
     const nomeSocialDependente = prompt("Nome social do dependente: ");
@@ -100,52 +114,120 @@ function adicionarDependenteCliente() {
     adicionarDependente(nomeTitular, dependente);
 }
 
-// Loop do menu
-let opcao = -1;
-while (opcao !== 0) {
-    menu();
-    
-    console.log("\n")
-    opcao = parseInt(prompt("Escolha uma opção: "));
+function menuPrincipal() {
+    console.log("\n----- Menu Principal -----\n");
+    console.log("1. Acessar CRUD de Clientes");
+    console.log("2. Acessar CRUD de Dependentes");
+    console.log("3. Acessar CRUD de Documentos");
+    console.log("0. Sair");
+}
 
-    switch (opcao) {
+let opcaoPrincipal = -1;
+while (opcaoPrincipal !== 0) {
+    menuPrincipal();
+    console.log("");
+    opcaoPrincipal = parseInt(prompt("Escolha uma opção: "));
+
+    switch (opcaoPrincipal) {
         case 1:
-            cadastrarNovoCliente();
+            let opcaoCliente = -1;
+            while (opcaoCliente !== 0) {
+                menuCliente();
+                console.log("");
+                opcaoCliente = parseInt(prompt("Escolha uma opção: "));
+                switch (opcaoCliente) {
+                    case 1:
+                        cadastrarNovoCliente();
+                        break;
+                    case 2:
+                        console.log("");
+                        const nomeCliente = prompt("Digite o nome do cliente: ");
+                        lerCliente(nomeCliente);
+                        break;
+                    case 3:
+                        AtualizacaoCliente();
+                        break;
+                    case 4:
+                        deletarClienteExistente();
+                        break;
+                    case 0:
+                        break;
+                    default:
+                        console.log("\nOpção inválida.");
+                }
+            }
             break;
         case 2:
-            console.log("\n")
-            const nomeCliente = prompt("Digite o nome do cliente: ");
-            lerCliente(nomeCliente);
+            let opcaoDependente = -1;
+            while (opcaoDependente !== 0) {
+                menuDependente();
+                console.log("");
+                opcaoDependente = parseInt(prompt("Escolha uma opção: "));
+                switch (opcaoDependente) {
+                    case 1:
+                        adicionarDependenteCliente();
+                        break;
+                    case 2:
+                        console.log("");
+                        const nomeTitularListarDep = prompt("Digite o nome do titular: ");
+                        listarDependentes(nomeTitularListarDep);
+                        break;
+                    case 3:
+                        console.log("");
+                        const nomeDependente = prompt("Digite o nome do dependente: ");
+                        listarTitular(nomeDependente);
+                        break;
+                    case 4:
+                        console.log("");
+                        const nomeTitularAtualizarDep = prompt("Digite o nome do titular para atualizar os dependentes: ");
+                        atualizarDependentes(nomeTitularAtualizarDep);
+                        break;
+                    case 5:
+                        console.log("");
+                        const nomeTitularDeletarDep = prompt("Digite o nome do titular: ");
+                        const nomeDependenteDeletar = prompt("Digite o nome do dependente a ser deletado: ");
+                        deletarDependente(nomeTitularDeletarDep, nomeDependenteDeletar);
+                        break;
+                    case 0:
+                        break;
+                    default:
+                        console.log("\nOpção inválida.");
+                }
+            }
             break;
         case 3:
-            AtualizacaoCliente();  // Atualize o nome aqui
-            break;
-        case 4:
-            deletarClienteExistente();
-            break;
-        case 5:
-            adicionarDependenteCliente();
-            break;
-        case 6:
-            console.log("\n")
-            const nomeTitularListarDep = prompt("Digite o nome do titular: ");
-            listarDependentes(nomeTitularListarDep);
-            break;
-        case 7:
-            console.log("\n")
-            const nomeDependente = prompt("Digite o nome do dependente: ");
-            listarTitular(nomeDependente);
-            break;
-        case 8:
-            console.log("\n")
-            const nomeTitularAtualizarDep = prompt("Digite o nome do titular para atualizar os dependentes: ");
-            atualizarDependentes(nomeTitularAtualizarDep);
-            break;
-        case 9:
-            console.log("\n")
-            const nomeTitularDeletarDep = prompt("Digite o nome do titular: ");
-            const nomeDependenteDeletar = prompt("Digite o nome do dependente a ser deletado: ");
-            deletarDependente(nomeTitularDeletarDep, nomeDependenteDeletar);
+            let opcaoDocumento = -1;
+            while (opcaoDocumento !== 0) {
+                menuDocumento();
+                console.log("");
+                opcaoDocumento = parseInt(prompt("Escolha uma opção: "));
+                switch (opcaoDocumento) {
+                    case 1:
+                        console.log("");
+                        const nomeTitularDoc = prompt("Digite o nome do titular ou dependente para adicionar o documento: ");
+                        adicionarDocumento(nomeTitularDoc);
+                        break;
+                    case 2:
+                        console.log("");
+                        const nomeTitularListarDoc = prompt("Digite o nome do titular ou dependente para listar os documentos: ");
+                        listarDocumentos(nomeTitularListarDoc);
+                        break;
+                    case 3:
+                        console.log("");
+                        const nomeTitularAtualizarDoc = prompt("Digite o nome do titular ou dependente para atualizar o documento: ");
+                        atualizarDocumento(nomeTitularAtualizarDoc);
+                        break;
+                    case 4:
+                        console.log("");
+                        const nomeTitularDeletarDoc = prompt("Digite o nome do titular ou dependente para deletar o documento: ");
+                        deletarDocumento(nomeTitularDeletarDoc);
+                        break;
+                    case 0:
+                        break;
+                    default:
+                        console.log("\nOpção inválida.");
+                }
+            }
             break;
         case 0:
             console.log("\nDesligando Software...");
