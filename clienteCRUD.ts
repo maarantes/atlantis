@@ -138,7 +138,7 @@ export function adicionarDependente(titularNome: string, dependente: Cliente) {
 }
 
 
-export function listarDependentes(titularNome: string) {
+export function listarDependentes(titularNome: string): Cliente[] {
     let titular = clientes.find(c => c.nome === titularNome);
 
     if (titular) {
@@ -146,10 +146,13 @@ export function listarDependentes(titularNome: string) {
         titular.dependentes.forEach(dependente => {
             console.log(`- ${dependente.nome}`);
         });
+        return titular.dependentes;
     } else {
         console.log("\nTitular não encontrado.");
+        return [];
     }
 }
+
 
 export function listarTitular(dependenteNome: string) {
     let dependente = clientes.find(c => c.nome === dependenteNome);

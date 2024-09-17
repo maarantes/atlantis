@@ -1,10 +1,14 @@
 import { cadastrarCliente, atualizarCliente, deletarCliente, lerCliente, adicionarDependente, listarDependentes, listarTitular, atualizarDependentes, deletarDependente } from "../clienteCRUD";
 import { adicionarDocumento, atualizarDocumento, deletarDocumento, listarDocumentos } from "../documentoCRUD";
+import { criarAcomodacao, listarAcomodacoes, atualizarAcomodacao, deletarAcomodacao, associarAcomodacao } from "../acomodacaoCRUD"; // Importando funções do CRUD de acomodação
 import Cliente from "../modelos/cliente";
 import Endereco from "../modelos/endereco";
 import Telefone from "../modelos/telefone";
+import Acomodacao from "../modelos/acomodacao";
 
-import "../ClientePreCadastrado"
+import { clientes } from "../clienteCRUD";
+
+import "../ClientePreCadastrado";
 
 const prompt = require("prompt-sync")({sigint: true});
 
@@ -35,6 +39,16 @@ function menuDocumento() {
     console.log("2. [READ] Listar Documentos de um Cliente");
     console.log("3. [UPDATE] Atualizar Documento de um Cliente");
     console.log("4. [DELETE] Deletar Documento de um Cliente");
+    console.log("0. Voltar ao menu principal");
+}
+
+function menuAcomodacao() {
+    console.log("\n----- CRUD Acomodações -----\n");
+    console.log("1. [CREATE] Criar Acomodação");
+    console.log("2. [READ] Listar Acomodações");
+    console.log("3. [UPDATE] Atualizar Acomodação");
+    console.log("4. [DELETE] Deletar Acomodação");
+    console.log("5. [ASSOCIATE] Associar Acomodação a Cliente e Dependentes");
     console.log("0. Voltar ao menu principal");
 }
 
@@ -119,9 +133,11 @@ function menuPrincipal() {
     console.log("1. Acessar CRUD de Clientes");
     console.log("2. Acessar CRUD de Dependentes");
     console.log("3. Acessar CRUD de Documentos");
+    console.log("4. Acessar CRUD de Acomodações");
     console.log("0. Sair");
 }
 
+// Loop do menu principal
 let opcaoPrincipal = -1;
 while (opcaoPrincipal !== 0) {
     menuPrincipal();
@@ -221,6 +237,48 @@ while (opcaoPrincipal !== 0) {
                         console.log("");
                         const nomeTitularDeletarDoc = prompt("Digite o nome do titular ou dependente para deletar o documento: ");
                         deletarDocumento(nomeTitularDeletarDoc);
+                        break;
+                    case 0:
+                        break;
+                    default:
+                        console.log("\nOpção inválida.");
+                }
+            }
+            break;
+        case 4:
+            let opcaoAcomodacao = -1;
+            while (opcaoAcomodacao !== 0) {
+                menuAcomodacao();
+                console.log("");
+                opcaoAcomodacao = parseInt(prompt("Escolha uma opção: "));
+                switch (opcaoAcomodacao) {
+                    case 1:
+                        console.log("\nCriando uma nova acomodação...");
+                        criarAcomodacao();
+                        break;
+                    case 2:
+                        listarAcomodacoes();
+                        break;
+                    case 3:
+                        case 3:
+                            const indexAcomodacao = parseInt(prompt("Digite o índice da acomodação para atualizar: ")) - 1;
+                            atualizarAcomodacao(indexAcomodacao);
+                            break;
+                    case 4:
+                        const indexDelAcomodacao = parseInt(prompt("Digite o índice da acomodação para deletar: ")) - 1;
+                        deletarAcomodacao(indexDelAcomodacao);
+                        break;
+                    case 5:
+                        const titularNome = prompt("Digite o nome do titular: ");
+                        const indexAssocAcomodacao = parseInt(prompt("Digite o índice da acomodação para associar: ")) - 1;
+                        const titular = clientes.find(c => c.nome === titularNome);
+
+                        if (titular) {
+                            const dependentes = listarDependentes(titularNome);
+                            associarAcomodacao(titular, dependentes, indexAssocAcomodacao);
+                        } else {
+                            console.log("Titular não encontrado.");
+                        }
                         break;
                     case 0:
                         break;
