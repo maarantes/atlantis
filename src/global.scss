@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+$primario: #081832;
+$primario-hover: #040f20;
+
+$vermelho: #ED3C5C;
+$vermelho-hover: #BA203C;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Inter";
+    text-decoration: none;
+    list-style-position: inside;
+    border: none;
+}
+
+body {
+    margin-left: 256px;
+    width: calc(100% - 256px);
+}
+
+.margem_5 {
+    margin: 0 5%;
+}

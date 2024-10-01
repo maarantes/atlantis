@@ -1,0 +1,36 @@
+.sidebar {
+    width: 256px;
+    height: 100vh;
+    background-color: #081832;
+    color: white;
+    position: fixed;
+    top: 0;
+    left: 0px;
+    padding: 32px;
+  }
+
+  .sidebar_top {
+    margin-bottom: 64px;
+    font-size: 12px;
+  }
+
+  .sidebar_top img {
+    width: 100%;
+    margin-bottom: 12px;
+  }
+  
+  .sidebar_menu {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .sidebar_menu p {
+    font-size: 16px;
+    font-weight: 500;
+    color: white;
+  }
+
+  .sidebar_menu p:hover {
+    color: #C4C4C4;
+  }
