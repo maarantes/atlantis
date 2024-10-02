@@ -1,6 +1,6 @@
-import React from 'react';
+import React from "react";
 import "./BotaoCTA.scss"
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 interface BotaoProps {
   link?: string;

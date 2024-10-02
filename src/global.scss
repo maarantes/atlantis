@@ -1,10 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
-$primario: #081832;
-$primario-hover: #040f20;
+$primario: #052d58;
+$primario-hover: #021b35;
 
 $vermelho: #ED3C5C;
 $vermelho-hover: #BA203C;
+
+$sombra-tom-01: #F5F5F5;
+$sombra-tom-02: #C4C4C4;
+$sombra-tom-03: #606060;
 
 * {
     margin: 0;
@@ -19,8 +23,25 @@ $vermelho-hover: #BA203C;
 body {
     margin-left: 256px;
     width: calc(100% - 256px);
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-height: 100vh;
+
 }
 
 .margem_5 {
     margin: 0 5%;
+}
+
+.container {
+    flex: 1; /* Ajustar o Footer */
+    margin-top: 40px; /* Cancelar altura do Navbar */
+}
+
+/* Deixar Footer no final da página */
+#root {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }

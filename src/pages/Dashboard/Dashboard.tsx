@@ -1,4 +1,5 @@
 import BotaoCTA from "../../components/BotaoCTA/BotaoCTA";
+import Navbar from "../../components/Navbar/Navbar";
 import Sidebar from "../../components/Sidebar/Sidebar";
 import "./Dashboard.scss"
 
@@ -7,52 +8,10 @@ function Dashboard() {
   return (
     <>
     <Sidebar />
-      <div className="teste margem_5">
-        <p>Olá, tudo bem?</p>
-        <div>
-          <BotaoCTA escrito="Teste" aparencia="primario" />
-        </div>
-      </div>
-
-      <div className="teste margem_5">
-        <p>Olá, tudo bem?</p>
-        <div>
-          <BotaoCTA escrito="Teste" aparencia="primario" />
-        </div>
-      </div>
-
-      <div className="teste margem_5">
-        <p>Olá, tudo bem?</p>
-        <div>
-          <BotaoCTA escrito="Teste" aparencia="primario" />
-        </div>
-      </div>
-
-      <div className="teste margem_5">
-        <p>Olá, tudo bem?</p>
-        <div>
-          <BotaoCTA escrito="Teste" aparencia="primario" />
-        </div>
-      </div>
-
-      <div className="teste margem_5">
-        <p>Olá, tudo bem?</p>
-        <div>
-          <BotaoCTA escrito="Teste" aparencia="primario" />
-        </div>
-      </div>
-
-      <div className="teste margem_5">
-        <p>Olá, tudo bem?</p>
-        <div>
-          <BotaoCTA escrito="Teste" aparencia="primario" />
-        </div>
-      </div>
-
-      <div className="teste margem_5">
-        <p>Olá, tudo bem?</p>
-        <div>
-          <BotaoCTA escrito="Teste" aparencia="primario" />
+    <Navbar />
+      <div className="container">
+        <div className="testar margem_5">
+          <p>Olá tudo bem contigo</p>
         </div>
       </div>
     </>

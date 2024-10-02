@@ -1,7 +1,9 @@
+@import "../../global.scss";
+
 .sidebar {
     width: 256px;
     height: 100vh;
-    background-color: #081832;
+    background-color: $primario-hover;
     color: white;
     position: fixed;
     top: 0;
