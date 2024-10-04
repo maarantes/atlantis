@@ -10,6 +10,8 @@ $sombra-tom-01: #F5F5F5;
 $sombra-tom-02: #C4C4C4;
 $sombra-tom-03: #606060;
 
+$escrito: #303030;
+
 * {
     margin: 0;
     padding: 0;
@@ -36,7 +38,7 @@ body {
 
 .container {
     flex: 1; /* Ajustar o Footer */
-    margin-top: 40px; /* Cancelar altura do Navbar */
+    margin-top: 150px;
 }
 
 /* Deixar Footer no final da página */

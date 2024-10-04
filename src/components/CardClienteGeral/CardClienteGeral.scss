@@ -1,0 +1,60 @@
+@import "../../global.scss";
+
+
+.cli_card {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid $sombra-tom-02;
+    padding: 16px;
+    border-radius: 12px;
+    width: 85%;
+    height: 100%;
+    align-items: stretch;
+}
+
+.cli_card_cima {
+    display: flex;
+    width: auto;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.cli_card_nome {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 0px 16px 0px 0px;
+    border-radius: 8px;
+    background-color: $sombra-tom-01;
+    width: 100%;
+}
+
+.cli_tipo {
+    background-color: $sombra-tom-02;
+    padding: 12px 20px;
+    border-radius: 8px 0px 0px 8px;
+}
+
+.cli_secao_titulo {
+    font-weight: 600;
+}
+
+.cli_secao {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 16px;
+    border-radius: 8px;
+    background-color: $sombra-tom-01;
+    height: 100%;
+    
+}
+
+.cli_secao_vertical {
+    height: 100%;
+}
+
+.cli_card_baixo {
+    display: flex;
+    gap: 16px;
+}
