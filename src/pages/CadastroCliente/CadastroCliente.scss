@@ -1,0 +1,75 @@
+@import "../../global.scss";
+
+.cad_titulo {
+    margin-bottom: 32px;
+    color: $escrito;
+}
+
+.cad_container {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.cad_input {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 30%;
+}
+
+.cad_input label {
+    font-weight: 600;
+}
+
+.cad_input input {
+    padding: 12px;
+    border: 1px solid $sombra-tom-02;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+.cad_metade {
+    width: 50%;
+}
+
+.cad_endereco {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.cad_endereco h3 {
+    margin-bottom: 16px;
+}
+
+.cad_titulo_secao {
+    margin-top: 48px;
+    color: $escrito;
+}
+
+.cad_baixo {
+    display: flex;
+    gap: 64px;
+    width: 100%;
+}
+
+.cad_baixo_esq, .cad_baixo_dir {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.maior {
+    min-width: 300px;
+}
+
+.cad_input_poder_remover {
+    display: flex;
+    gap: 16px;
+}
+
+.cad_botao_cadastro {
+    margin-top: 32px;
+    margin-bottom: 96px;
+}

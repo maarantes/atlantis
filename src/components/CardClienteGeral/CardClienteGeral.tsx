@@ -3,6 +3,7 @@ import "./CardClienteGeral.scss";
 import BotaoCTA from "../BotaoCTA/BotaoCTA";
 
 const CardClienteGeral = () => {
+  
   return (
     <div className="cli_card">
       <div className="cli_card_cima">
@@ -10,6 +11,7 @@ const CardClienteGeral = () => {
           <p className="cli_tipo">Titular</p>
           <p>Pedro Oliveira de Souza</p>
         </div>
+        <BotaoCTA escrito="Excluir" aparencia="secundario" cor="vermelho" />
         <BotaoCTA escrito="Editar" aparencia="primario" />
       </div>
       <div className="cli_card_baixo">
