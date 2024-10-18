@@ -18,6 +18,29 @@
     width: 30%;
 }
 
+.cad_input_cima {
+    display: flex;
+    flex-direction: row;
+    gap: 64px;
+}
+
+.cad_radio_cima {
+    margin-top: 16px;
+    margin-bottom: 8px;
+}
+
+.cad_radio {
+    background-color: #F5F5F5;
+    padding: 12px;
+    border-radius: 4px;
+    width: 33%;
+}
+
+label input {
+    margin-right: 8px;
+}
+
+
 .cad_input label {
     font-weight: 600;
 }
@@ -72,4 +95,9 @@
 .cad_botao_cadastro {
     margin-top: 32px;
     margin-bottom: 96px;
+}
+
+.transparencia {
+    opacity: 0.33;
+    pointer-events: none;
 }
