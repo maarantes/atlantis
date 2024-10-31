@@ -1,0 +1,65 @@
+@import "../../global.scss";
+
+.acom_card_container {
+    display: flex;
+    gap: 16px;
+    margin-top: 32px;
+}
+
+.acom_card {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    background-color: #F5F5F5;
+    padding: 16px;
+    border-radius: 8px;
+    width: 20%;
+}
+
+.acom_card h4 {
+    color: #909090;
+    font-size: 12px;
+}
+
+.acom_card p {
+    margin-top: 8px;
+    margin-bottom: 16px;
+}
+
+.acom_card_quantidade {
+    margin-top: -20px !important;
+}
+
+.acom_modal_titulo {
+    margin-bottom: 16px;
+    color: #303030;
+}
+
+.acom_especificacoes {
+    margin-bottom: 32px;
+}
+
+.acom_especificacoes p {
+    margin-bottom: 8px;
+    color: #606060;
+}
+
+.acom_especificacoes span {
+    font-weight: 500;
+    color: #303030;
+}
+
+.acom_baixo {
+    margin-top: 64px;
+}
+
+.acom_baixo_titulo {
+    margin-bottom: 40px;
+}
+
+.acom_lista {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 80px;
+}

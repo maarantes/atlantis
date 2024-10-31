@@ -1,0 +1,36 @@
+@import "../../global.scss";
+
+.caco_container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #F5F5F5;
+    padding: 24px;
+    border-radius: 8px;
+    margin-top: 16px;
+}
+
+.caco_esq {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.caco_esq_container {
+    display: flex;
+    gap: 64px;
+}
+
+.caco_container h2 {
+    font-size: 1.125rem;
+    font-weight: 500;
+}
+
+.caco_container span {
+    color: #606060;
+}
+
+.caco_dir {
+    display: flex;
+    gap: 16px;
+}

@@ -6,6 +6,7 @@ import Clientes from "../pages/Clientes/Clientes";
 import CadastroCliente from "../pages/CadastroCliente/CadastroCliente";
 import Documentos from "../pages/Documentos/Documentos";
 import EditarDocumento from "../pages/EditarDocumentos/EditarDocumentos";
+import Acomodacoes from "../pages/Acomodacoes/Acomodacoes";
 
 export default function AppRoutes() {
   return (
@@ -16,6 +17,7 @@ export default function AppRoutes() {
           <Route path="/clientes/cadastro" element={<CadastroCliente />} />
           <Route path="/documentos" element={<Documentos />} />
           <Route path="/documentos/editar" element={<EditarDocumento />} />
+          <Route path="/acomodacoes" element={<Acomodacoes />} />
         </Routes>
         <Footer />
     </Router>
