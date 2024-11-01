@@ -34,6 +34,7 @@
     padding: 12px;
     border-radius: 4px;
     width: 33%;
+    min-width: 256px;
 }
 
 label input {
@@ -100,4 +101,37 @@ label input {
 .transparencia {
     opacity: 0.33;
     pointer-events: none;
+}
+
+@media only screen and (max-width: 1000px) {
+
+    .cad_baixo {
+        flex-direction: column;
+    }
+
+}
+
+@media only screen and (max-width: 1200px) {
+
+    .cad_baixo {
+        flex-direction: column;
+    }
+
+    .cad_input_cima {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .cad_metade {
+        width: 100%;
+    }
+
+    .cad_endereco {
+        flex-direction: column;
+    }
+
+    .cad_input {
+        width: 100%;
+    }
+
 }

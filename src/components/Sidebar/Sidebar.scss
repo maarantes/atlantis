@@ -31,8 +31,25 @@
     font-size: 16px;
     font-weight: 500;
     color: white;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
   }
 
   .sidebar_menu p:hover {
     color: #C4C4C4;
   }
+
+@media only screen and (max-width: 768px) {
+
+  .sidebar {
+    width: 96px;
+    padding: 16px;
+  }
+
+  .sidebar_top {
+    margin-top: 40px;
+  }
+
+}

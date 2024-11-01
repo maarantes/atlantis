@@ -39,7 +39,7 @@ function CadastroCliente() {
           <div className="cad_input_cima">
           <div className="cad_input cad_metade">
             <label htmlFor="nome">Nome</label>
-            <input type="text" id="nome" placeholder="Digite aqui..." />
+            <input className="cad_input_nome" type="text" id="nome" placeholder="Digite aqui..." />
           </div>
 
           <div className="cad_input cad_metade">

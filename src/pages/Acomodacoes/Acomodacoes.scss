@@ -63,3 +63,43 @@
     gap: 16px;
     margin-bottom: 80px;
 }
+
+@media only screen and (max-width: 1480px) {
+
+    .acom_card_container {
+        flex-wrap: wrap;
+    }
+
+    .acom_card {
+        width: 200px;
+    }
+
+}
+
+@media only screen and (max-width: 1400px) {
+
+    .caco_esq_container {
+        flex-direction: column;
+    }
+
+    .caco_dir {
+        flex-direction: column;
+    }
+
+    .caco_container {
+        flex-direction: column;
+        gap: 20px;
+        align-items: start;
+    }
+
+    .caco_dir {
+        flex-direction: row;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+
+    .acom_card {
+        width: 45%;
+    }
+}

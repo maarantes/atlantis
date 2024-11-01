@@ -3,10 +3,11 @@
 .cli_card {
     display: flex;
     flex-direction: column;
-    border: 1px solid $sombra-tom-02;
+    background-color: $sombra-tom-01;
     padding: 16px;
     border-radius: 12px;
     width: 85%;
+    max-width: 1200px;
     height: 100%;
     align-items: stretch;
 }
@@ -24,7 +25,7 @@
     gap: 16px;
     padding: 0px 16px 0px 0px;
     border-radius: 8px;
-    background-color: $sombra-tom-01;
+    background-color: white;
     width: 100%;
 }
 
@@ -44,7 +45,7 @@
     gap: 16px;
     padding: 16px;
     border-radius: 8px;
-    background-color: $sombra-tom-01;
+    background-color: white;
     height: 100%;
     
 }
@@ -56,4 +57,28 @@
 .cli_card_baixo {
     display: flex;
     gap: 16px;
+}
+
+@media only screen and (max-width: 1250px) {
+
+    .cli_card_cima {
+        flex-direction: column;
+    }
+
+    .cli_card_baixo {
+        flex-direction: column;
+    }
+
+    .cli_tipo {
+        display: none;
+    }
+
+    .cli_card_nome {
+        padding: 16px;
+    }
+
+    .cli_card {
+        width: 100%;
+    }
+
 }
